@@ -3,7 +3,9 @@ package main
 // Hello World表示する用
 import (
 	"errors"
+	"net/http"
 	"fmt"
+	"server/api"
 )
 
 func main() {
@@ -14,8 +16,8 @@ func main() {
 		return
 	}
 	fmt.Println("Result:", result)
-	// http.HandleFunc("/api", onigiri.ApiHandler)
-	// http.ListenAndServe(":8080", nil)
+	http.HandleFunc("/api", api.ApiHandler)
+	http.ListenAndServe(":8080", nil)
 }
 
 func doSomething(input string) (string, error) {
