@@ -6,9 +6,11 @@ import (
 	"fmt"
 	"net/http"
 )
+
 // handlerなど，外部で呼び出したい関数はプライベートではなくパブリックで．(小文字でなく大文字で)
 func ApiHandler(w http.ResponseWriter, r *http.Request) {
 	result, err := doSomething("input")
+	// result, err := doSomething("")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
